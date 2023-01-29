@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_3_7_0_test_app/glow_stuff/glow_stuff.dart';
 
 const rowDivider = SizedBox(width: 20);
 const colDivider = SizedBox(height: 10);
@@ -108,6 +109,7 @@ class Containment extends StatelessWidget {
       BottomSheetSection(),
       Cards(),
       Dialogs(),
+      GlowStuffButton(),
     ]);
   }
 }
@@ -612,6 +614,34 @@ class _DialogsState extends State<Dialogs> {
     );
   }
 }
+
+class GlowStuffButton extends StatelessWidget {
+  const GlowStuffButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ComponentDecoration(
+        label: 'glow stuff',
+        child: UnconstrainedBox(
+          child: TextButton(
+            child: const Text(
+              'Glow Stuff Page!!',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                GlowStuffPage.route(),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 
 class Switches extends StatelessWidget {
   const Switches({super.key});
